@@ -1,0 +1,6 @@
+-if @stocks.present?
+  -@stocks.each do |stock|
+    .stock
+      .sticker.inline= stock.ticker
+      .sintvalue.inline
+      .svalue.inline=stock.value.round(2)

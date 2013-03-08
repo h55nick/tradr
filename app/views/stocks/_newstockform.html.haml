@@ -1,0 +1,7 @@
+.form
+  = form_for @stock,  :remote => true  do |f|
+    = f.label :ticker
+    = f.text_field :ticker, :autofocus => true
+    = f.label :shares
+    = f.text_field :shares
+    = f.submit(nil,:class=>"button radius small success")

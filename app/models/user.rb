@@ -15,4 +15,13 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation,:cash_balance
   has_many :stocks, :inverse_of => :user
   has_secure_password
+
+
+  def balance
+    b = 0
+    self.stocks.each do |s|
+      b += s.value
+    end
+    return b+ cash_balance
+  end
 end

@@ -1,0 +1,7 @@
+%table#users
+  -@users.each do |user|
+    %tr
+      %td= user.name
+      %td= user.cash_balance
+      %td= user.balance - user.cash_balance
+      %td= user.balance

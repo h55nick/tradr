@@ -14,5 +14,15 @@
 class Stock < ActiveRecord::Base
   attr_accessible :ticker, :init_value,:shares,:user_id
   belongs_to :user, :inverse_of => :stocks
+
+
+  def price()
+    YahooFinance::get_realtime_quotes(ticker)[ticker].bid
+  end
+
+  def value
+    shares * price
+  end
+
 end
 
